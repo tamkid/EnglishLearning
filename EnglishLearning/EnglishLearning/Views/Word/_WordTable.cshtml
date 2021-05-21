@@ -1,0 +1,25 @@
+﻿@model List<WordVM>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">English Word</th>
+            <th scope="col">Spelling</th>
+            <th scope="col">Type</th>
+            <th scope="col">Meaning</th>
+        </tr>        
+    </thead>
+    @if (Model != null)
+    {
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.EnglishWord</td>
+                    <td>@item.Spelling</td>
+                    <td>@item.TypeName</td>
+                    <td>@item.Mean</td>
+                </tr>
+            }
+        </tbody>
+    }
+</table>
