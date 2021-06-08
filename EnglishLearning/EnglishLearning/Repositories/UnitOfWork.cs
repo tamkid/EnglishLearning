@@ -38,6 +38,11 @@ namespace EnglishLearning.Repositories
             return _repositories[type];
         }
 
+        public async Task<int> SaveChange()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
         #region Disposed
 
         private bool disposed = false;

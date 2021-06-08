@@ -3,9 +3,16 @@
 }
 
 <div class="container-fluid">
-    <h3>Word management</h3>
-    <div id="word-table">
-        <!-- word table here -->
+    <div class="card border-info">
+        <div class="card-header font-weight-bold">
+            <h5 class="float-left text-info">Word List</h5>
+            <a role="button" class="btn btn-success float-right" asp-area="" asp-controller="Word" asp-action="Create">Add</a>
+        </div>
+        <div class="card-body">
+            <div id="word-table">
+                <!-- word table here -->
+            </div>
+        </div>
     </div>
 </div>
 

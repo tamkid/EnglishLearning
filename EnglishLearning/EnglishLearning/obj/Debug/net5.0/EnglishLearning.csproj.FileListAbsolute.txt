@@ -433,3 +433,5 @@ D:\TamNguyen\MyProject\EnglishLearning\EnglishLearning\EnglishLearning\bin\Debug
 D:\TamNguyen\MyProject\EnglishLearning\EnglishLearning\EnglishLearning\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 D:\TamNguyen\MyProject\EnglishLearning\EnglishLearning\EnglishLearning\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 D:\TamNguyen\MyProject\EnglishLearning\EnglishLearning\EnglishLearning\obj\Debug\net5.0\EnglishLearning.MvcApplicationPartsAssemblyInfo.cs
+D:\TamNguyen\MyProject\EnglishLearning\EnglishLearning\EnglishLearning\obj\Debug\net5.0\Razor\Views\Word\Create.cshtml.g.cs
+D:\TamNguyen\MyProject\EnglishLearning\EnglishLearning\EnglishLearning\obj\Debug\net5.0\Razor\Views\Word\Edit.cshtml.g.cs

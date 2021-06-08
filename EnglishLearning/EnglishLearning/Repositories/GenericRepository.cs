@@ -39,10 +39,25 @@ namespace EnglishLearning.Repositories
 
             if (orderBy != null)
             {
-                orderBy(query);
+                query = orderBy(query);
             }
 
             return query;
+        }
+
+        public async Task<TEntity> GetById(object id)
+        {
+            return await dbSet.FindAsync(id);
+        }
+
+        public async Task Insert(TEntity entity)
+        {
+            await dbSet.AddAsync(entity);
+        }
+
+        public void Delete(TEntity entity)
+        {
+            dbSet.Remove(entity);
         }
     }
 }

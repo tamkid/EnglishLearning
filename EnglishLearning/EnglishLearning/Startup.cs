@@ -35,6 +35,7 @@ namespace EnglishLearning
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IWordService, WordService>();
+            services.AddTransient<IWordCategoryService, WordCategoryService>();
 
             services.AddControllersWithViews()
                     .AddRazorRuntimeCompilation();

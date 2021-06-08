@@ -1,0 +1,59 @@
+﻿@model EnglishLearning.Models.WordEditVM;
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container-fluid">
+    <div class="card border-info">
+        <div class="card-header font-weight-bold">
+            <h5 class="float-left text-info">Word Creating</h5>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form asp-action="Edit" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden"  asp-for="Id"/>
+                        <div class="form-group">
+                            <label asp-for="EnglishWord" class="control-label"></label>
+                            <input asp-for="EnglishWord" class="form-control" />
+                            <span asp-validation-for="EnglishWord" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Mean" class="control-label"></label>
+                            <input asp-for="Mean" class="form-control" />
+                            <span asp-validation-for="Mean" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Spelling" class="control-label"></label>
+                            <input asp-for="Spelling" class="form-control" />
+                            <span asp-validation-for="Spelling" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Type" class="control-label"></label>
+                            <select asp-for="Type" class="form-control"
+                                    asp-items="@(Html.GetEnumSelectList<Enums.WordType>())"></select>
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="WordCategoryId" class="control-label"></label>
+                            <select asp-for="WordCategoryId" class="form-control"
+                                    asp-items="@(new SelectList(Model.ListWordCategory, "Id", "Name"))"></select>
+                            <span asp-validation-for="WordCategoryId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Update" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!--End card-body-->
+        <div class="card-footer">
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,25 +1,58 @@
 ﻿@model List<WordVM>
-<table class="table table-hover">
+<table class="table table-hover table-bordered">
     <thead>
-        <tr>
+        <tr class="text-center">
+            <th scope="col">#</th>
             <th scope="col">English Word</th>
             <th scope="col">Spelling</th>
             <th scope="col">Type</th>
             <th scope="col">Meaning</th>
-        </tr>        
+            <th scope="col"></th>
+        </tr>
     </thead>
     @if (Model != null)
     {
+        var idx = 0;
         <tbody>
             @foreach (var item in Model)
             {
+                var id = item.EnglishWord;
+                idx++;
                 <tr>
+                    <td class="text-center">@idx</td>
                     <td>@item.EnglishWord</td>
-                    <td>@item.Spelling</td>
-                    <td>@item.TypeName</td>
+                    <td class="text-center">@item.Spelling</td>
+                    <td class="text-center">@item.TypeName</td>
                     <td>@item.Mean</td>
+                    <td class="text-center">
+                        <a role="button" class="btn btn-outline-success"
+                           asp-area="" asp-controller="Word" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a role="button" class="btn btn-outline-danger" onclick="func_confirm_delete('@item.Id', '@item.EnglishWord')">Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>
     }
 </table>
+
+<!-- Modal Delete Confirm -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <input type="hidden" id="wordDeleteId" value="" />
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="confirmContent">
+                Do you want to delete item <>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <a role="button" class="btn btn-primary" onclick="func_delete()">Yes</a>
+            </div>
+        </div>
+    </div>
+</div>
